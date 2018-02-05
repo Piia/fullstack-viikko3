@@ -64,7 +64,7 @@ app.post('/api/persons', (request, response) => {
   const body = request.body
 
   if ((body.name === undefined) || (body.number === undefined)) {
-    return response.status(400).json({error: 'erroneous post request'})
+    return response.status(400).json({error: 'undefined fields in post request'})
   }
 
   const person = new Person({
@@ -75,7 +75,7 @@ app.post('/api/persons', (request, response) => {
   Person
     .find({name: person.name})
     .then(result => {
-      if(!result) {
+      if(result === undefined || result.length === 0) {
         person
           .save()
           .then(Person.format)
@@ -85,6 +85,7 @@ app.post('/api/persons', (request, response) => {
             response.status(400).send({ error: 'something went wrong in saving' })
           })
       } else {
+        console.log(result)
         response.status(400).send({ error: 'person already in database' })
       }
     })
