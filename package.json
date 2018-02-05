@@ -1,0 +1,25 @@
+{
+  "name": "fullstack-viikko3",
+  "version": "0.0.1",
+  "description": "Phonebook backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fullstack-viikko3"
+  },
+  "author": "Piia Hartikka",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.0",
+    "nodemon": "^1.14.12"
+  }
+}
